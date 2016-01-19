@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DDA156B31C4DC85600F03E80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156B21C4DC85600F03E80 /* AppDelegate.swift */; };
-		DDA156B51C4DC85700F03E80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156B41C4DC85700F03E80 /* ViewController.swift */; };
 		DDA156B81C4DC85700F03E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA156B61C4DC85700F03E80 /* Main.storyboard */; };
 		DDA156BB1C4DC85800F03E80 /* Flicks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDA156B91C4DC85800F03E80 /* Flicks.xcdatamodeld */; };
 		DDA156BD1C4DC85900F03E80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA156BC1C4DC85900F03E80 /* Assets.xcassets */; };
 		DDA156C01C4DC85900F03E80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA156BE1C4DC85900F03E80 /* LaunchScreen.storyboard */; };
 		DDA156CB1C4DC85B00F03E80 /* FlicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156CA1C4DC85B00F03E80 /* FlicksTests.swift */; };
 		DDA156D61C4DC85C00F03E80 /* FlicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156D51C4DC85C00F03E80 /* FlicksUITests.swift */; };
+		DDA156E41C4DCC0500F03E80 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156E31C4DCC0500F03E80 /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		DDA156AF1C4DC85600F03E80 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA156B21C4DC85600F03E80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDA156B41C4DC85700F03E80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDA156B71C4DC85700F03E80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDA156BA1C4DC85800F03E80 /* Flicks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flicks.xcdatamodel; sourceTree = "<group>"; };
 		DDA156BC1C4DC85900F03E80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		DDA156D11C4DC85C00F03E80 /* FlicksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlicksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA156D51C4DC85C00F03E80 /* FlicksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlicksUITests.swift; sourceTree = "<group>"; };
 		DDA156D71C4DC85D00F03E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDA156E31C4DCC0500F03E80 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				DDA156B21C4DC85600F03E80 /* AppDelegate.swift */,
-				DDA156B41C4DC85700F03E80 /* ViewController.swift */,
 				DDA156B61C4DC85700F03E80 /* Main.storyboard */,
 				DDA156BC1C4DC85900F03E80 /* Assets.xcassets */,
 				DDA156BE1C4DC85900F03E80 /* LaunchScreen.storyboard */,
 				DDA156C11C4DC85900F03E80 /* Info.plist */,
 				DDA156B91C4DC85800F03E80 /* Flicks.xcdatamodeld */,
+				DDA156E31C4DCC0500F03E80 /* MoviesViewController.swift */,
 			);
 			path = Flicks;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA156BB1C4DC85800F03E80 /* Flicks.xcdatamodeld in Sources */,
-				DDA156B51C4DC85700F03E80 /* ViewController.swift in Sources */,
 				DDA156B31C4DC85600F03E80 /* AppDelegate.swift in Sources */,
+				DDA156E41C4DCC0500F03E80 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
