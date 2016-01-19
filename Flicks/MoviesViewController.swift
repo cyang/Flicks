@@ -21,6 +21,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self;
         tableView.delegate = self;
+        
+        let refreshControl = UIRefreshControl();
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged);
+        
+        tableView.insertSubview(refreshControl, atIndex: 0);
 
         getNowPlayingData();
     }
@@ -56,9 +61,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         cell.overviewLabel.text = overview;
         cell.posterView.setImageWithURL(posterUrl!);
         
-        
-        print("row \(indexPath.row)");
-
         return cell;
     }
     
@@ -92,15 +94,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         task.resume()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func refreshControlAction(refreshControl: UIRefreshControl){
+        self.tableView.reloadData();
+        refreshControl.endRefreshing();
     }
-    */
 
 }
