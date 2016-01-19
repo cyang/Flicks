@@ -4,7 +4,8 @@
 use_frameworks!
 
 target 'Flicks' do
-    pod 'AFNetworking', '~> 3.0' 
+    pod 'AFNetworking', '~> 3.0'
+    pod 'MBProgressHUD'
 end
 
 target 'FlicksTests' do
