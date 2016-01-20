@@ -10,11 +10,13 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var movies: [NSDictionary]?
+    var filteredMovies: [NSDictionary]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged);
         
         tableView.insertSubview(refreshControl, atIndex: 0);
+        
+        searchBar.delegate = self;
 
         getNowPlayingData();
     }
@@ -36,8 +40,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = movies {
-            return movies.count;
+        if let filteredMovies = filteredMovies {
+            return filteredMovies.count;
         } else {
             return 0;
         }
@@ -49,8 +53,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell;
         
-        let movie = movies![indexPath.row];
+        let movie = filteredMovies[indexPath.row];
+        
         let title = movie["title"] as! String;
+        
         let overview = movie["overview"] as! String;
         
         let posterBaseUrl = "http://image.tmdb.org/t/p/w500";
@@ -81,9 +87,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            NSLog("response: \(responseDictionary)")
                             
                             self.movies = responseDictionary["results"] as? [NSDictionary];
+                            self.filteredMovies = self.movies;
                             
                             MBProgressHUD.hideHUDForView(self.view, animated: true)
                             
@@ -97,6 +103,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     func refreshControlAction(refreshControl: UIRefreshControl){
         self.tableView.reloadData();
         refreshControl.endRefreshing();
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredMovies = searchText.isEmpty ? movies : movies!.filter({(movieDictionary: NSDictionary) -> Bool in
+            return (movieDictionary["title"] as! String).rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+        })
+        
+        self.tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 
 }
