@@ -60,12 +60,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let overview = movie["overview"] as! String;
         
         let posterBaseUrl = "http://image.tmdb.org/t/p/w500";
-        let posterPath = movie["poster_path"] as! String;
-        let posterUrl = NSURL(string: posterBaseUrl + posterPath);
-
+        if let posterPath = movie["poster_path"] as? String{
+            let posterUrl = NSURL(string: posterBaseUrl + posterPath);
+            cell.posterView.setImageWithURL(posterUrl!);
+        }
+        
         cell.titleLabel.text = title;
         cell.overviewLabel.text = overview;
-        cell.posterView.setImageWithURL(posterUrl!);
         
         return cell;
     }
