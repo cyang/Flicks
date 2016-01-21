@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         infoView.frame.size.height = 50 + overviewLabel.frame.size.height
 
         
-        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.height)
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height + 50)
         
         let posterBaseUrl = "http://image.tmdb.org/t/p/w500";
         if let posterPath = movie["poster_path"] as? String{
