@@ -17,6 +17,7 @@
 		DDA156CB1C4DC85B00F03E80 /* FlicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156CA1C4DC85B00F03E80 /* FlicksTests.swift */; };
 		DDA156D61C4DC85C00F03E80 /* FlicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156D51C4DC85C00F03E80 /* FlicksUITests.swift */; };
 		DDA156E41C4DCC0500F03E80 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA156E31C4DCC0500F03E80 /* MoviesViewController.swift */; };
+		DDA94D711C50AD8C004C04CB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA94D701C50AD8C004C04CB /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		DDA156D51C4DC85C00F03E80 /* FlicksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlicksUITests.swift; sourceTree = "<group>"; };
 		DDA156D71C4DC85D00F03E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA156E31C4DCC0500F03E80 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		DDA94D701C50AD8C004C04CB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F03653B13240252176FF1836 /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA156E31C4DCC0500F03E80 /* MoviesViewController.swift */,
+				DDA94D701C50AD8C004C04CB /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				DDA156BB1C4DC85800F03E80 /* Flicks.xcdatamodeld in Sources */,
 				DDA156B31C4DC85600F03E80 /* AppDelegate.swift in Sources */,
+				DDA94D711C50AD8C004C04CB /* DetailViewController.swift in Sources */,
 				DD0CACBA1C4E1E0A00FBD72E /* MovieCell.swift in Sources */,
 				DDA156E41C4DCC0500F03E80 /* MoviesViewController.swift in Sources */,
 			);
