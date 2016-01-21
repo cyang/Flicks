@@ -18,6 +18,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var movies: [NSDictionary]?
     var filteredMovies: [NSDictionary]!
     
+    var endpoint: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,7 +77,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -133,7 +135,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     // Pass the selected object to the new view controller.
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
-        let movie = movies![indexPath!.row]
+        let movie = filteredMovies![indexPath!.row]
         
         let detailViewController = segue.destinationViewController as! DetailViewController
         detailViewController.movie = movie
