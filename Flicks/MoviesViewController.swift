@@ -137,6 +137,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let indexPath = tableView.indexPathForCell(cell)
         let movie = filteredMovies![indexPath!.row]
         
+        
+        // Use a red color when the user selects the cell
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.redColor()
+        
+        cell.selectedBackgroundView = backgroundView
+        
         let detailViewController = segue.destinationViewController as! DetailViewController
         detailViewController.movie = movie
         
